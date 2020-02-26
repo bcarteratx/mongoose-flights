@@ -14,7 +14,10 @@ function index(req, res) {
 }
 
 function show(req, res) {
-  Flight.findById(req.params.id)
+  Flight.findById(req.params.id, function(err, flight){
+    res.render('flights/show', { title: 'Flight Details', flight})
+  })
+
 }
 
 function newFlight(req, res) {
@@ -22,6 +25,7 @@ function newFlight(req, res) {
 }
 
 function create(req, res) {
+  console.log(req.body)
   const flight = new Flight(req.body);
   flight.save(function(err) {
     if (err) return res.render('flight/new');
