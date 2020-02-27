@@ -4,7 +4,7 @@ module.exports = {
   index,
   show,
   new: newFlight,
-  create
+  create,
 };
 
 function index(req, res) {
