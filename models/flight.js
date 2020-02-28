@@ -28,7 +28,7 @@ const destSchema = new Schema ({
         type: Date,
         default: function() {
            let redate = new Date();
-           redate. setFullYear(redate.getFullYear()=1)
+           redate. setFullYear(redate.getFullYear()+1)
            return redate();
         }},
    airport: {

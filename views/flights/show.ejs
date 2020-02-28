@@ -26,5 +26,8 @@
   </select><br>
   <input type="submit" value="Add Destination">
 </form>
-
+<form action="/flights/<%= flight._id %>/destinations" method="POST">
+<button type="submit">Change Flight Details</button>
+</form>
+<br>
 <%- include('../partials/footer') %>
