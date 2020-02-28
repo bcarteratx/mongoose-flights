@@ -51,7 +51,7 @@
 <br>
 
 <a href="/flights/<%= flight._id %>/tickets">Add Ticket</a>
-<% if (flight.tickets) { %>
+<% if (tickets) { %>
   <table>
     <thead>
       <tr>
@@ -60,7 +60,7 @@
       </tr>
     </thead>
     <tbody>
-      <% flight.tickets.forEach((t) => { %>
+      <% tickets.forEach((t) => { %>
         <tr>
           <td><%= t.seat %></td>
           <td><%= t.price %></td>
