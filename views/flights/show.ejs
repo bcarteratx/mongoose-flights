@@ -49,4 +49,25 @@
 <button type="submit">Change Flight Details</button>
 </form>
 <br>
+
+<a href="/flights/<%= flight._id %>/tickets">Add Ticket</a>
+<% if (flight.tickets) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Seat</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% flight.tickets.forEach((t) => { %>
+        <tr>
+          <td><%= t.seat %></td>
+          <td><%= t.price %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+<% } %>
+
 <%- include('../partials/footer') %>

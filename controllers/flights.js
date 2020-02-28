@@ -6,7 +6,8 @@ module.exports = {
   new: newFlight,
   create,
   delete: deleteOne,
-  showUpdate
+  showUpdate,
+  showTicket
 };
 
 function index(req, res) {
@@ -47,3 +48,9 @@ function showUpdate(req, res) {
   })
 }
 
+function showTicket(req, res) {
+  Flight.findById(req.params.id, function(err, flight){
+    res.render('tickets/new', { title: 'Ticket Details', flight})
+  })
+
+}
