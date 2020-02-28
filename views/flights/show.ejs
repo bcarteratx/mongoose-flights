@@ -11,7 +11,26 @@
   <div><%= flight.departs %></div>
 </section>
 
-<form action="/flights/<%= flight._id%>" method="POST">
+<% if (flight.destinations.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Dest.</th>
+        <th>Arrival Date/Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% flight.destinations.forEach((d) => { %>
+        <tr>
+          <td><%= d.airport %></td>
+          <td><%= d.arrival %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+<% } %>
+
+<form action="/flights/<%= flight._id%>/destinations" method="POST">
 <label>Arrival Date
 	  <input type="datetime-local" name="arrival">
   </label><br>
@@ -26,7 +45,7 @@
   </select><br>
   <input type="submit" value="Add Destination">
 </form>
-<form action="/flights/<%= flight._id %>/destinations" method="POST">
+<form action="/flights/<%= flight._id %>/edit" method="GET">
 <button type="submit">Change Flight Details</button>
 </form>
 <br>
